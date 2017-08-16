@@ -1,7 +1,7 @@
 {
   "name": "@3846masa/linebot",
   "description": "LINE BOT API wrapper for Node.js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "3846masa <3846masahiro+git@gmail.com>",
   "bugs": {
     "url": "https://github.com/3846masa/node-linebot/issues"
@@ -9,7 +9,7 @@
   "dependencies": {
     "axios": "^0.14.0",
     "body-parser": "^1.15.2",
-    "eventemitter2": "^2.1.3",
+    "eventemitter2": "^3.0.2",
     "express": "^4.14.0"
   },
   "devDependencies": {
