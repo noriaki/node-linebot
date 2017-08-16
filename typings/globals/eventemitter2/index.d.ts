@@ -132,6 +132,7 @@ declare class EventEmitter2 {
      * @param event
      */
     emit(event: string[]): boolean;
+    emitAsync(event: string | string[], ...values: any[]): Promise<any[]>;
 }
 
 declare module "eventemitter2" {
@@ -245,5 +246,6 @@ declare module "eventemitter2" {
          * @param event
          */
         emit(event: string[]): boolean;
+        emitAsync(event: string | string[], ...values: any[]): Promise<any[]>;
     }
 }

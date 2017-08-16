@@ -104,12 +104,15 @@ export class LineBot extends EventEmitter2 {
         return next(new Error('Invalid JSON.'));
       }
 
+      const promises: Promise<any>[] = [];
       for (const event of req.body.events) {
         const eventObj = LineEvent.createFromObject(event, this);
-        this.emit(`webhook:${event.type}`, eventObj);
+        promises.push(this.emitAsync(`webhook:${event.type}`, eventObj));
       }
-      res.status(200).send();
-      return next();
+      Promise.all(promises).then(() => {
+        res.status(200).send();
+        next();
+      });
     });
 
     this.express.use((err: Error, req: Request, res: Response, next: NextFunction) => {
